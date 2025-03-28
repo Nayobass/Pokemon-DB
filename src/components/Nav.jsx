@@ -1,6 +1,6 @@
 import React from 'react';
 import Logo from "../assets/LOTRLogo.png"
-import { Link } from 'react-router';
+import { Link } from "react-router";
 
 const Nav = () => {
   return (

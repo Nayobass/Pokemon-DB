@@ -1,10 +1,14 @@
+import Header from "./components/Header";
 import Nav from "./components/Nav";
-import { BrowserRouter as Router, Routes, Route } from "react-router";
+import { BrowserRouter as Router, Route } from "react-router";
+import Characters from "./pages/Characters";
 
 function App() {
   return (
     <Router>
-      <Nav />
+        <Nav />
+        <Header />
+        <Characters />
     </Router>
   );
 }

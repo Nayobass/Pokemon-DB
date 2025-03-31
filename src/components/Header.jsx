@@ -11,7 +11,7 @@ const Header = () => {
           <h1 className="header__maintitle secondary__font">Lord of the Rings</h1>
           <h3 className="header__subtitle">character quotes here!</h3>
           <div className="header__sub">
-            <Link to='/characters'>
+            <Link to='/quotes'>
               <button className="header__sub--button secondary__font">Let's get started</button>
             </Link>
             <img className="header__sub--img" src={Gandalf} alt="" />

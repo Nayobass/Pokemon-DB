@@ -10,8 +10,8 @@ const Nav = () => {
             <Link to="/" className='navbar__links--link'>
                 Home
             </Link>
-            <Link to="/characters" className='navbar__links--link'>
-                Characters
+            <Link to="/quotes" className='navbar__links--link'>
+                Quotes
             </Link>
         </div>
     </nav>

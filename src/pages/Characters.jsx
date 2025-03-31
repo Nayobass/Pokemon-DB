@@ -9,7 +9,7 @@ const Characters = () => {
         <div className="container">
           <div className="row">
             <h1 className="search__maintitle">
-              Enter the quote about your favorite{" "}
+              Enter a quote from your favorite{" "}
               <span className="secondary__font">Lord of the Rings</span>{" "}
               character here!
             </h1>
@@ -17,12 +17,16 @@ const Characters = () => {
               <input
                 className="searchbar__input secondary__font"
                 type="text"
-                placeholder="Gandalf"
+                placeholder="What about second breakfast?"
               />
               <button className="searchbar__button secondary__font">Go!</button>
             </div>
             <div className="results">
-              <div className="resultcard"></div>
+              <div className="resultcard">
+                <h1 className="resultcard__main secondary__font">Quote: </h1>
+                <p>Character: </p>
+                <p>Movie: </p>
+              </div>
             </div>
           </div>
         </div>

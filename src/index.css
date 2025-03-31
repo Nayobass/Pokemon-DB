@@ -20,6 +20,10 @@
   align-items: center;
 }
 
+.secondary__font {
+  font-family: "Eagle Lake";
+}
+
 /* 
 
 NAVIGATION BAR
@@ -68,7 +72,6 @@ HEADER
 .header__maintitle {
   margin: 12px 0;
   font-size: 80px;
-  font-family: "Eagle Lake";
   color: rgb(205, 181, 44);
 }
 
@@ -88,7 +91,6 @@ HEADER
 .header__sub--button {
   padding: 18px 32px;
   font-size: 24px;
-  font-family: "Eagle Lake";
   border: none;
   border-radius: 9999px;
   transition: all 500ms ease;
@@ -110,4 +112,44 @@ HEADER
   0% { transform: translateY(0); }
   50% { transform: translateY(-20px); }
   100% { transform: translateY(0); }
+}
+
+/*
+
+SEARCH PAGE
+
+*/
+
+.search__maintitle {
+  font-weight: normal;
+}
+
+.searchbar {
+  width: 100%;
+  text-align: center;
+}
+
+.searchbar__input {
+  margin-top: 24px;
+  width: 50%;
+  padding: 12px;
+  font-size: 24px;
+  border: 2px solid rgb(205, 181, 44);
+  border-radius: 9999px;
+}
+
+.searchbar__button {
+  margin-left: 16px;
+  font-size: 24px;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: all 500ms ease;
+}
+
+.searchbar__button:hover {
+  background-color: rgb(205, 181, 44);
+  color: white;
+  transition: all 300ms ease;
 }

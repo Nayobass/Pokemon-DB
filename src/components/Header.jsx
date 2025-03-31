@@ -7,12 +7,12 @@ const Header = () => {
     <section id="header">
       <div className="container">
         <div className="row">
-          <h3 className="header__subtitle">Search for your favorite</h3>
-          <h1 className="header__maintitle">Lord of the Rings</h1>
-          <h3 className="header__subtitle">Characters here!</h3>
+          <h3 className="header__subtitle">Search your favorite</h3>
+          <h1 className="header__maintitle secondary__font">Lord of the Rings</h1>
+          <h3 className="header__subtitle">character quotes here!</h3>
           <div className="header__sub">
             <Link to='/characters'>
-              <button className="header__sub--button">Let's get started</button>
+              <button className="header__sub--button secondary__font">Let's get started</button>
             </Link>
             <img className="header__sub--img" src={Gandalf} alt="" />
           </div>

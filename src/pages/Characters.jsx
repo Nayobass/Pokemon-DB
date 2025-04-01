@@ -1,7 +1,7 @@
 import React from "react";
 import Nav from "../components/Nav";
 
-const Characters = () => {
+const Characters = ({ getCharacters }) => {
   return (
     <>
       <Nav />
@@ -19,7 +19,7 @@ const Characters = () => {
                 type="text"
                 placeholder="What about second breakfast?"
               />
-              <button className="searchbar__button secondary__font">Go!</button>
+              <button onClick={getCharacters} className="searchbar__button secondary__font">Go!</button>
             </div>
             <div className="results">
               <div className="resultcard">

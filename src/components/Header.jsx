@@ -1,5 +1,5 @@
 import React from "react";
-import Gandalf from "../assets/Gandalf.webp";
+import Pikachu from "../assets/Pikachu.png"
 import { Link } from "react-router";
 
 const Header = () => {
@@ -8,13 +8,13 @@ const Header = () => {
       <div className="container">
         <div className="row">
           <h3 className="header__subtitle">Search your favorite</h3>
-          <h1 className="header__maintitle secondary__font">Lord of the Rings</h1>
-          <h3 className="header__subtitle">character quotes here!</h3>
+          <h1 className="header__maintitle secondary__font">POKEMON</h1>
+          <h3 className="header__subtitle">here!</h3>
           <div className="header__sub">
-            <Link to='/quotes'>
+            <Link to='/pokemon'>
               <button className="header__sub--button secondary__font">Let's get started</button>
             </Link>
-            <img className="header__sub--img" src={Gandalf} alt="" />
+            <img className="header__sub--img" src={Pikachu} alt="" />
           </div>
         </div>
       </div>

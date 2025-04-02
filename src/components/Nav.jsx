@@ -1,5 +1,5 @@
 import React from 'react';
-import Logo from "../assets/LOTRLogo.png"
+import Logo from "../assets/POKELogo.png"
 import { Link } from "react-router";
 
 const Nav = () => {
@@ -10,8 +10,8 @@ const Nav = () => {
             <Link to="/" className='navbar__links--link'>
                 Home
             </Link>
-            <Link to="/quotes" className='navbar__links--link'>
-                Quotes
+            <Link to="/pokemon" className='navbar__links--link'>
+                Pokémon
             </Link>
         </div>
     </nav>

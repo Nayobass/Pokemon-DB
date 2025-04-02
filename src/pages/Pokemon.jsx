@@ -8,12 +8,16 @@ const Pokemon = () => {
   async function getPokemon() {
     const userInput = document.querySelector(".searchbar__input").value;
     const { data } = await axios.get(
-      `https://pokeapi.co/api/v2/pokemon/${userInput}`
+      `https://pokeapi.co/api/v2/pokemon/${userInput || ""}`
     );
-    setResults(data);
+    const pokemon = Object.values(data);
+    setResults(pokemon);
+    console.log(pokemon);
   }
 
-  console.log(results)
+  useEffect(() => {
+    getPokemon();
+  }, []);
 
   return (
     <>
@@ -40,12 +44,11 @@ const Pokemon = () => {
               </button>
             </div>
             <div className="results">
-              {results.map((result) => (
                 <div className="resultcard">
-                  <p>{result.name}</p>
-                  <p>{result.type}</p>
+                  <img src={results[16].front_default} alt="" />
+                  <p>{results[11]}</p>
+                  <p>{results[12]}</p>
                 </div>
-              ))}
             </div>
           </div>
         </div>

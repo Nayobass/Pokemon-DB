@@ -3,21 +3,18 @@ import Nav from "../components/Nav";
 import axios from "axios";
 
 const Pokemon = () => {
-  const [results, setResults] = useState([]);
+  const [pokemon, setPokemon] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [search, setSearch] = useState('');
+  const [error, setError] = useState(null);
 
   async function getPokemon() {
     const userInput = document.querySelector(".searchbar__input").value;
     const { data } = await axios.get(
       `https://pokeapi.co/api/v2/pokemon/${userInput || ""}`
     );
-    const pokemon = Object.values(data);
-    setResults(pokemon);
-    console.log(pokemon);
+    setPokemon(data);
   }
-
-  useEffect(() => {
-    getPokemon();
-  }, []);
 
   return (
     <>
@@ -44,11 +41,11 @@ const Pokemon = () => {
               </button>
             </div>
             <div className="results">
-                <div className="resultcard">
-                  <img src={results[16].front_default} alt="" />
-                  <p>{results[11]}</p>
-                  <p>{results[12]}</p>
-                </div>
+              {pokemon && (<div className="resultcard">
+                <img src={pokemon.sprites.front_default} alt="" />
+                <p>{pokemon.name}</p>
+                <p>{pokemon.order}</p>
+              </div>)}
             </div>
           </div>
         </div>

@@ -101,7 +101,7 @@ HEADER
   transition: all 300ms ease;
 }
 
-.header__sub--img {
+.bouncy__pikachu {
   margin-top: 24px;
   width: 75%;
   animation: mover 2s infinite ;

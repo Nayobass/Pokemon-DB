@@ -14,7 +14,7 @@ const Header = () => {
             <Link to='/pokemon'>
               <button className="header__sub--button secondary__font">Let's get started</button>
             </Link>
-            <img className="header__sub--img" src={Pikachu} alt="" />
+            <img className="bouncy__pikachu" src={Pikachu} alt="" />
           </div>
         </div>
       </div>

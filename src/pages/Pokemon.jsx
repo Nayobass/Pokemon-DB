@@ -1,21 +1,24 @@
 import React, { useEffect, useState } from "react";
 import Nav from "../components/Nav";
 import axios from "axios";
-import Pikachu from "../assets/Pikachu.png"
+import PikachuLoading from "../assets/PikachuLoading.png";
+import SadCubone from "../assets/SadCubone.png";
+import { Link, useNavigate } from "react-router";
 
 const Pokemon = () => {
   const [pokemon, setPokemon] = useState(null);
-  const [userInput, setUserInput] = useState('');
+  const [userInput, setUserInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   const handleSearchChange = (event) => {
     setUserInput(event.target.value);
-  }
+  };
 
   const handleSearchClick = async () => {
     if (!userInput) {
-      setError('Please enter a Pokémon name');
+      setError("Please enter a Pokémon name");
       setPokemon(null);
       return;
     }
@@ -26,22 +29,18 @@ const Pokemon = () => {
       const response = await axios.get(
         `https://pokeapi.co/api/v2/pokemon/${userInput}`
       );
+      setTimeout(() => {
+        setLoading(false);
+      }, 1000);
       setPokemon(response.data);
-      setLoading(false);
     } catch (err) {
-      setError('No Pokémon found with that name');
+      setError("No Pokémon found with that name!");
       setPokemon(null);
       setLoading(false);
     }
-  }
+  };
 
-  // async function getPokemon() {
-  //   const userInput = document.querySelector(".searchbar__input").value;
-  //   const { data } = await axios.get(
-  //     `https://pokeapi.co/api/v2/pokemon/${userInput}`
-  //   );
-  //   setPokemon(data);
-  // }
+  console.log(pokemon);
 
   return (
     <>
@@ -60,8 +59,8 @@ const Pokemon = () => {
                 value={userInput}
                 onChange={handleSearchChange}
                 onKeyUp={(event) => {
-                  if (event.key === 'Enter') {
-                    handleSearchClick;
+                  if (event.key === "Enter") {
+                    handleSearchClick();
                   }
                 }}
               />
@@ -73,13 +72,35 @@ const Pokemon = () => {
               </button>
             </div>
             <div className="results">
-              {loading && <img className="bouncy__pikachu" src={Pikachu}></img>}
-              {error && <div>{error}</div>}
-              {pokemon && !loading && !error && (<div className="resultcard">
-                <img src={pokemon.sprites.front_default} alt="" />
-                <p>{pokemon.name.toUpperCase()}</p>
-                <p>{pokemon.order}</p>
-              </div>)}
+              {loading && (
+                <img className="loading__pikachu" src={PikachuLoading}></img>
+              )}
+              {error && (
+                <>
+                  <img className="error__cubone" src={SadCubone}></img>
+                  <div>{error}</div>
+                </>
+              )}
+              {pokemon && !loading && !error && (
+                  <div className="resultcard" onClick={() => navigate(`${pokemon.id}`)}>
+                    <img
+                      className="resultcard__img"
+                      src={pokemon.sprites.front_default}
+                      alt=""
+                    />
+                    <p>Name:</p>
+                    <h1>{pokemon.name.toUpperCase()}</h1>
+                    <p>Pokédex No. :</p>
+                    <h3>{pokemon.id}</h3>
+                    <p>Type:</p>
+                    <h3>{pokemon.types[0].type.name.toUpperCase()}</h3>
+                    {pokemon.types[1] ? (
+                      <h3>{pokemon.types[1].type.name.toUpperCase()}</h3>
+                    ) : (
+                      <></>
+                    )}
+                  </div>
+              )}
             </div>
           </div>
         </div>

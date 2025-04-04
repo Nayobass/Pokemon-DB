@@ -9,28 +9,44 @@ const Details = () => {
 
   async function getDetails() {
     const { data } = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
-    setDetails(data)
+    setDetails(data);
   }
 
   useEffect(() => {
     getDetails();
   }, []);
-  
-  console.log(details)
+
+  console.log(details);
 
   return (
     <>
       <Nav />
       <section id="details">
         <div className="container">
-            <div className="row">
-                <div className="details__container">
-                    <img alt="" />
-                    <div className="details__text">
-                        
-                    </div>
+          <div className="row">
+            {details && (
+              <div className="details__container">
+                <img src={details.sprites.front_default} alt="" />
+                <div className="details__text">
+                  <h1>{details.name.toUpperCase()}</h1>
+                  <p>Pokédex No.: {details.id}</p>
+                  <p>
+                    Ability: {details.abilities[0].ability.name.toUpperCase()}
+                  </p>
+                  <p>
+                    Type: {details.types[0].type.name.toUpperCase()}{" "}
+                    {details.types[1] ? (
+                      <p>{details.types[1].type.name.toUpperCase()}</p>
+                    ) : (
+                      <></>
+                    )}
+                  </p>
+                  <p>Weight: {details.weight}</p>
+                  <p>Height: {details.height}</p>
                 </div>
-            </div>
+              </div>
+            )}
+          </div>
         </div>
       </section>
     </>

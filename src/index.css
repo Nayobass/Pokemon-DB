@@ -192,3 +192,20 @@ SEARCH PAGE
   width: 25%;
   margin-bottom: 12px;
 }
+
+/*
+
+DETAILS PAGE
+
+*/
+
+#details {
+  width: 100%;
+}
+
+.details__container {
+  width: 100%;
+  height: 800px;
+  display: flex;
+  justify-content: center;
+}

@@ -26,7 +26,7 @@ const Details = () => {
           <div className="row">
             {details && (
               <div className="details__container">
-                <img src={details.sprites.front_default} alt="" />
+                <img className="details__img" src={details.sprites.front_default} alt="" />
                 <div className="details__text">
                   <h1>{details.name.toUpperCase()}</h1>
                   <p>Pokédex No.: {details.id}</p>

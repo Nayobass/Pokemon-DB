@@ -45,7 +45,7 @@ NAVIGATION BAR
   width: 35%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .navbar__links--link {
@@ -217,4 +217,62 @@ DETAILS PAGE
 
 .details__img {
   width: 50%;
+}
+
+/*
+
+POKEDEX
+
+*/
+
+.pokedex__container {
+  width: 100%;
+  height: 100%;
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.pokedexcard {
+  width: 25%;
+  margin: 12px;
+  display: flex;
+  border: 2px solid white;
+  padding: 12px;
+  border-radius: 9999px;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.pokedexcard__pokemon {
+  transition: all 300ms ease;
+}
+
+.pokedexcard__pokemon:hover {
+  color: yellow;
+  transition: all 300ms ease;
+}
+
+.pokedex__buttons {
+  width: 50%;
+  margin-top: 32px;
+  display: flex;
+  justify-content: center;
+}
+
+.pokedex__buttons--button {
+  margin: 12px;
+  padding: 12px;
+  border: 2px solid white;
+  border-radius: 9999px;
+  transition: all 500ms ease;
+  cursor: pointer;
+}
+
+.pokedex__buttons--button:hover {
+  background-color: white;
+  color: black;
+  transition: all 500ms ease;
 }

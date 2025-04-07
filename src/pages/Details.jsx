@@ -16,8 +16,6 @@ const Details = () => {
     getDetails();
   }, []);
 
-  console.log(details);
-
   return (
     <>
       <Nav />

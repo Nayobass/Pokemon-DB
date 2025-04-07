@@ -12,6 +12,9 @@ const Nav = () => {
         <Link to="/pokemon" className="navbar__links--link">
           Pokémon
         </Link>
+        <Link to="/pokedex" className="navbar__links--link">
+          Pokedex
+        </Link>
       </div>
     </nav>
   );

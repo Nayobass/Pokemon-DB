@@ -3,7 +3,7 @@ import Nav from "../components/Nav";
 import axios from "axios";
 import PikachuLoading from "../assets/PikachuLoading.png";
 import SadCubone from "../assets/SadCubone.png";
-import { Link, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 
 const Pokemon = () => {
   const [pokemon, setPokemon] = useState(null);
@@ -39,8 +39,6 @@ const Pokemon = () => {
       setLoading(false);
     }
   };
-
-  console.log(pokemon);
 
   return (
     <>

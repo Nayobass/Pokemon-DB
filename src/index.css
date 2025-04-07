@@ -209,7 +209,7 @@ DETAILS PAGE
 
 .details__container {
   width: 100%;
-  height: 800px;
+  height: 500px;
   display: flex;
   align-items: center;
   justify-content: space-around;

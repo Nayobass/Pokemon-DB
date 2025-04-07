@@ -5,36 +5,33 @@ import { useNavigate } from "react-router";
 
 const Pokedex = () => {
   const [pokemons, setPokemons] = useState([]);
-  const [page, setPage] = useState();
+  const [currentPage, setCurrentPage] = useState(0);
+  const itemsPerPage = 30;
   const navigate = useNavigate();
 
-  //   async function getPokemons() {
-  //     const { data } = await axios.get(
-  //       "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=10"
-  //     );
-  //     const results = data.results;
-  //     setPokemons(results);
-  //   }
+  async function getPokemons() {
+    const response = await axios.get("https://pokeapi.co/api/v2/pokemon?limit=1302");
+    setPokemons(response.data.results);
+    console.log(data);
+  }
 
   useEffect(() => {
-    async function getPokemons() {
-      const { data } = await axios.get(
-        "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=30"
-      );
-      const results = data.results;
-      setPokemons(results);
-    }
     getPokemons();
   }, []);
 
-  async function nextPokemons() {
-    const { data } = await axios.get(
-      "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=30"
-    );
-    const nextPage = await axios.get(`${data.next}`);
-    const newPokemon = nextPage.data.results;
-    setPokemons(newPokemon)
-  }
+  const displayPokemon = () => {
+    const startIndex = currentPage * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    return pokemons.slice(startIndex, endIndex);
+  };
+
+  const changePage = (direction) => {
+    setCurrentPage((prevPage) => prevPage + direction);
+  };
+
+  const disablePrevButton = currentPage === 0;
+  const disableNextButton = currentPage >= Math.ceil(pokemons.length / itemsPerPage) - 1;
+
 
   return (
     <>
@@ -46,7 +43,7 @@ const Pokedex = () => {
               Click on your favorite Pokémon for more info!
             </h1>
             <div className="pokedex__container">
-              {pokemons.map((pokemon, index) => (
+              {displayPokemon().map((pokemon, index) => (
                 <div
                   key={index}
                   onClick={() => {
@@ -62,17 +59,15 @@ const Pokedex = () => {
             </div>
             <div className="pokedex__buttons">
               <button
-                onClick={() => {
-                  page.previous;
-                }}
+                onClick={() => changePage(-1)}
+                disabled={disablePrevButton}
                 className="pokedex__buttons--button"
               >
                 Previous
               </button>
               <button
-                onClick={() => {
-                  nextPokemons();
-                }}
+                onClick={() => changePage(1)}
+                disabled={disableNextButton}
                 className="pokedex__buttons--button"
               >
                 Next

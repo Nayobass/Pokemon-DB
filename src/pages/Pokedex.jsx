@@ -54,6 +54,7 @@ const Pokedex = () => {
                   <h1 className="pokedexcard__pokemon">
                     {pokemon.name.toUpperCase()}
                   </h1>
+                  <img src={`https://img.pokemondb.net/sprites/lets-go-pikachu-eevee/normal/${pokemon.name}.png`} alt="" />
                 </div>
               ))}
             </div>

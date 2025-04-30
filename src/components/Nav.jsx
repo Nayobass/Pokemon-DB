@@ -9,7 +9,7 @@ const Nav = () => {
         <img className="navbar__img" src={Logo} alt="" />
       </Link>
       <div className="navbar__links">
-        <Link to="/pokemon" className="navbar__links--link">
+        <Link to="/pokemon" className="navbar__links--link firstlink">
           Pokémon
         </Link>
         <Link to="/pokedex" className="navbar__links--link">

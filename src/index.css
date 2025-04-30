@@ -9,6 +9,11 @@
   color: white;
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
 .container {
   padding: 56px 0;
 }
@@ -35,10 +40,11 @@ NAVIGATION BAR
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
+  padding: 12px 32px;
 }
 
 .navbar__img {
-  width: 50%;
+  width: 300px;
 }
 
 .navbar__links {
@@ -122,6 +128,11 @@ HEADER
 SEARCH PAGE
 
 */
+
+#search {
+  width: 100%;
+  margin: 0 auto;
+}
 
 .search__maintitle {
   font-weight: normal;
@@ -235,11 +246,11 @@ POKEDEX
 }
 
 .pokedexcard {
-  width: 25%;
+  width: 300px;
   margin: 12px;
   display: flex;
   border: 2px solid white;
-  padding: 12px;
+  padding: 72px;
   border-radius: 9999px;
   flex-direction: column;
   align-items: center;
@@ -275,4 +286,63 @@ POKEDEX
   background-color: white;
   color: black;
   transition: all 500ms ease;
+}
+
+@media (max-width: 860px) {
+  .header__maintitle {
+    font-size: 60px;
+  }
+
+  .header__subtitle {
+    font-size: 28px;
+  }
+
+  .navbar__links--link {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 647px) {
+  .row {
+    text-align: center;
+  }
+
+  .bouncy__pikachu {
+    width: 400px;
+  }
+}
+
+@media (max-width: 600px) {
+  .firstlink {
+    display: none;
+  }
+
+  .navbar__links {
+    display: flex;
+    justify-content: center;
+  }
+
+  .resultcard {
+    width: 300px;
+  }
+}
+
+@media (max-width: 571px) {
+  .bouncy__pikachu {
+    width: 300px;
+  }
+
+  .navbar__img {
+    width: 220px;
+  }
+
+  .container {
+    margin: 0 12px;
+  }
+}
+
+@media (max-width: 380px) {
+  .navbar__img {
+    width: 200px;
+  }
 }
